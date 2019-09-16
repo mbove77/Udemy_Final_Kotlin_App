@@ -11,18 +11,16 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
         tools:ignore="GoogleAppIndexingWarning">
-        <activity android:name=".activities.ForgotPasswordActivity"></activity>
-        <activity android:name=".activities.SingUpActivity" />
-        <activity
-            android:name=".activities.LoginActivity"
-            android:windowSoftInputMode="adjustPan">
+
+        <activity android:name=".MainActivity" />
+        <activity android:name=".MainEmptyActivity" android:theme="@android:style/Theme.NoDisplay">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
-
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".MainActivity" />
+        <activity android:name=".activities.ForgotPasswordActivity" />
+        <activity android:name=".activities.SingUpActivity" />
+        <activity android:name=".activities.LoginActivity" android:windowSoftInputMode="adjustPan" />
     </application>
-
 </manifest>
