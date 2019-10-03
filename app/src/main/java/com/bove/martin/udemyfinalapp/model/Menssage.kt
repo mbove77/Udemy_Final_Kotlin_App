@@ -7,4 +7,8 @@ import java.util.*
  * E-mail: mbove77@gmail.com
  */
 
-data class Menssage(val authorID: String, val message: String, val profileImageUrl: String, val sendAt: Date)
+data class Menssage(
+    val authorID: String = "",
+    val message: String = "",
+    val profileImageUrl: String = "",
+    val sendAt: Date = Date() )

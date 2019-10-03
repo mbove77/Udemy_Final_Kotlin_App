@@ -12,6 +12,7 @@ import android.widget.EditText
 import android.widget.ImageView
 import android.widget.Toast
 import com.bove.martin.udemyfinalapp.R
+import com.bumptech.glide.Glide
 import com.google.android.material.snackbar.Snackbar
 import java.util.regex.Pattern
 
@@ -48,9 +49,9 @@ fun Activity.snackBar(mensaje: CharSequence,
 fun ViewGroup.inflate(layoutId: Int) = LayoutInflater.from(context).inflate(layoutId,this, false)
 
 // Agreganos Load by url a ImageView
-/*
-fun ImageView.loadFromUrl(url: String) = Picasso.get().load(url).resize(this.measuredWidth, this.measuredHeight).centerInside().into(this)
-*/
+fun ImageView.loadFromUrl(url: String) = Glide.with(this).load(url).into(this)
+
+
 // Agreganos goto a Activity
 inline fun <reified T: Activity>Activity.goToActivity(noinline init: Intent.() -> Unit = {}) {
     val intent = Intent(this, T::class.java)

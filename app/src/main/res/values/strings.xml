@@ -29,4 +29,8 @@
     <string name="dialog_edit_text_hint">Leave your feedback</string>
     <string name="dialog_ok">Rate</string>
     <string name="dialog_cancel">Cancel</string>
+    <string name="chat_edit_text_hint">Type here a message...</string>
+
+
+
 </resources>
