@@ -12,6 +12,8 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import com.bove.martin.udemyfinalapp.R
 import com.bove.martin.udemyfinalapp.adapters.ChatAdapter
 import com.bove.martin.udemyfinalapp.model.Menssage
+import com.bove.martin.udemyfinalapp.model.TotalMessagesEvent
+import com.bove.martin.udemyfinalapp.utils.RxBus
 import com.bove.martin.udemyfinalapp.utils.toast
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.FirebaseUser
@@ -116,6 +118,7 @@ class ChatFragment : Fragment() {
                     messageList.addAll(messages)
                     adapter.notifyDataSetChanged()
                     _view.reciclerViewChat.smoothScrollToPosition(messages.size)
+                    RxBus.publish(TotalMessagesEvent(messages.size))
                 }
 
             }
@@ -123,8 +126,8 @@ class ChatFragment : Fragment() {
         })
     }
 
-    override fun onDestroy() {
-        super.onDestroy()
+    override fun onDestroyView() {
+        super.onDestroyView()
         chatSuscription?.remove()
     }
 }

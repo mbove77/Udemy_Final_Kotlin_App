@@ -30,7 +30,8 @@
     <string name="dialog_ok">Rate</string>
     <string name="dialog_cancel">Cancel</string>
     <string name="chat_edit_text_hint">Type here a message...</string>
-
+    <string name="mail">E-mail:</string>
+    <string name="name">Nombre:</string>
 
 
 </resources>

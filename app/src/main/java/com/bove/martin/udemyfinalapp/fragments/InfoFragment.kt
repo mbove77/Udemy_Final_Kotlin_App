@@ -1,6 +1,7 @@
 package com.bove.martin.udemyfinalapp.fragments
 
 
+import android.annotation.SuppressLint
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
@@ -8,6 +9,8 @@ import android.view.View
 import android.view.ViewGroup
 
 import com.bove.martin.udemyfinalapp.R
+import com.bove.martin.udemyfinalapp.model.TotalMessagesEvent
+import com.bove.martin.udemyfinalapp.utils.RxBus
 
 import com.bove.martin.udemyfinalapp.utils.toast
 import com.bumptech.glide.Glide
@@ -38,7 +41,8 @@ class InfoFragment : Fragment() {
         setupDataBase()
         setupCurrentUser()
         setupCurrentUserInfoUI()
-        suscribeTotalMessagesFirebase()
+        //suscribeTotalMessagesFirebase()
+        suscribeTotalMessagesEventBusStyle()
 
         return _view
     }
@@ -74,6 +78,18 @@ class InfoFragment : Fragment() {
                 }
             }
         })
+    }
+
+    @SuppressLint("CheckResult")
+    private fun suscribeTotalMessagesEventBusStyle() {
+        RxBus.listen(TotalMessagesEvent::class.java).subscribe {
+            _view.textViewInfoTotalMsg.text = "${it.total}"
+        }
+    }
+
+    override fun onDestroyView() {
+        super.onDestroyView()
+        chatSuscription?.remove()
     }
 
 }
